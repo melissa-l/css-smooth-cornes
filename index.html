@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        (CSS.paintWorklet || paintWorklet).addModule('https://css-houdini.rocks/posts/smooth-corners/paint.js')
+    </script>
+</head>
+<body>
+    <div class="Demo">
+        <div class="a">
+            <img class="b c" src="https://newsroom.impopper.com/content/images/2019/11/popnews-2019robot-head_2.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .Demo {
+        background: linear-gradient(to bottom right,#333,#111);
+        color: #eee;
+        padding: 25px 0 0;
+        margin: 25px auto 0;
+        overflow: hidden; 
+    }
+    .a {
+        margin: 50px auto; 
+        position: relative;
+        width: 256px;
+        height: 256px;
+        max-height: 80vw;
+        max-width: 80%;
+    }
+    .b {
+        width: 100%;
+        /* padding-top: 100%; */
+        height: 0;
+        background: #fff;
+        /* border-radius: 70px; */
+        position: absolute;
+        top: 0;
+    }
+    .c {
+        border-radius: 0;
+        -webkit-mask-image: paint(smooth-corners);
+        --smooth-corners: 5;
+        height: 256px;
+        background: linear-gradient(to bottom right, deeppink, orangered);
+        width: 100%;
+        /* padding-top: 100%; */
+        /* height: 0; */
+        position: absolute;
+        top: 0;
+    }
+</style>
